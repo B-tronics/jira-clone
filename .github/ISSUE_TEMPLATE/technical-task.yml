@@ -1,0 +1,91 @@
+name: Technical Task
+description: Create a technical task
+title: "[Task]: "
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Create a new technical task
+        Please provide the details for this technical task.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What needs to be done?
+      placeholder: Implement password encryption using BCrypt
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Sprint
+      description: Which sprint is this task planned for?
+      options:
+        - Sprint 1
+        - Sprint 2
+        - Sprint 3
+        - Backlog
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - 🔴 High
+        - 🟡 Medium
+        - 🟢 Low
+    validations:
+      required: true
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: Effort
+      options:
+        - "1"
+        - "2"
+        - "3"
+        - "5"
+        - "8"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: epic
+    attributes:
+      label: Epic
+      options:
+        - 🏗️ Infrastructure
+        - 👤 User Management
+        - 📋 Project Management
+        - 🎫 Issue Management
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation-steps
+    attributes:
+      label: Implementation Steps
+      description: List the specific steps needed to complete this task
+      placeholder: |
+        1. [ ] Set up BCrypt configuration
+        2. [ ] Implement password encoder service
+        3. [ ] Add unit tests
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical-details
+    attributes:
+      label: Technical Details
+      description: Technical specifications and requirements
+      placeholder: |
+        - Required dependencies
+        - Configuration details
+        - Testing requirements
+    validations:
+      required: true
