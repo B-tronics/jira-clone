@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  jiraclone-postgres:
+    image: postgres:16-alpine
+    container_name: jiraclone-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - jiraclone_postgres_data:/var/lib/postgresql/data
+    networks:
+      - jiraclone-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jiraclone"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  jiraclone-network:
+    name: jiraclone-network
+
+volumes:
+  jiraclone_postgres_data:
+    name: jiraclone_postgres_data
