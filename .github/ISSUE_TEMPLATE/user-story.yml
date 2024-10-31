@@ -63,6 +63,7 @@ body:
         - 👤 User Management
         - 📋 Project Management
         - 🎫 Issue Management
+        - 📄 Documentation 
     validations:
       required: true
 
